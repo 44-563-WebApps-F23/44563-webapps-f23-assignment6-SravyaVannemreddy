@@ -1,11 +1,8 @@
 <!DOCTYPE html>
 <html>
- 
 <body>
     <title> Author entry Sravya </title>
-
     <form>
-        
         <label for="pwd">The hidden author name</label><br>
         <input type="password" id="pwd" value= "Dickens" name="pwd">
         <br>
@@ -13,25 +10,16 @@
         <input type="text" id="guessAuthor" name="guessAuthor" required>
         <br>
         <input  type="button" onclick= "checkAuthor()" value="Check the guess">
-
       </form>
-
       <p id="countGood"></p>
       <p id="countOops"></p>
-      
-     
-
 <script> 
-
-
 var good = 0;
 var oops = 0;
-
 function checkAuthor() {
     console.log("hello")
     var authorPwd = document.getElementById("pwd").value;
     var authorGuess = document.getElementById("guessAuthor").value;
-    
     if (authorPwd == authorGuess) {
         good++;
         alert("You got it right");
@@ -39,12 +27,9 @@ function checkAuthor() {
         oops++;
         alert("Sorry");  
     }
-
     document.getElementById("countGood").innerHTML = good;
-    document.getElementById("countOops").innerHTML = oops;
-    
+    document.getElementById("countOops").innerHTML = oops; 
 }
-
 </script>
 </body>
 </html> 

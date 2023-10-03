@@ -5,6 +5,11 @@
     </head>
 <body>
     <h1>Author Entry Sravya</h1>
+    <div id="imageContainer">
+        <img src="./images/raleigh.jpg" alt="raleigh" width="100" height="100" onclick="selectImage()">
+        <img src="./images/seattle.jpg" alt="seattle" width="100" height="100" onclick="selectImage()">
+        <img src="./images/Virginia.jpg" alt="Virginia" width="100" height="100" onclick="selectImage()">
+    </div>
     <form>
         <label for="pwd">The hidden author name</label><br>
         <input type="password" id="pwd" value= "Dickens" name="pwd">
@@ -19,6 +24,9 @@
 <script> 
 var good = 0;
 var oops = 0;
+// Global variable to track the selected image
+var useImage = 1;
+
 function checkAuthor() {
     console.log("hello")
     var authorPwd = document.getElementById("pwd").value;
@@ -32,6 +40,25 @@ function checkAuthor() {
     }
     document.getElementById("countGood").innerHTML = good;
     document.getElementById("countOops").innerHTML = oops; 
+}
+
+// Function to select the next image
+function selectImage() {
+    switch (useImage) {
+        case 1:
+            document.getElementById('imageContainer').innerHTML = '<img src="./images/seattle.jpg" alt="Seattle" width="100" height="100" onclick="selectImage()">';
+            useImage = 2;
+            break;
+        case 2:
+            document.getElementById('imageContainer').innerHTML = '<img src="./images/Virginia.jpg" alt="Virginia" width="100" height="100" onclick="selectImage()">';
+            useImage = 3;
+            break;
+        case 3:
+            document.getElementById('imageContainer').innerHTML = '<img src="./images/raleigh.jpg" alt="Raleigh" width="100" height="100" onclick="selectImage()">';
+            useImage = 1;
+            break;
+    }
+
 }
 </script>
 </body>

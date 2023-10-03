@@ -6,6 +6,21 @@
 <body>
 
 <h2>Sravya Shows tips amount</h2>
+<form>
+    <label>
+        <input type="radio" name="operation" value="sum" onclick="chooseOp()"> Sum
+    </label>
+    <br>
+    <label>
+        <input type="radio" name="operation" value="difference" onclick="chooseOp()"> Difference
+    </label>
+    <br>
+    <label>
+        <input type="radio" name="operation" value="product" onclick="chooseOp()"> Product
+    </label>
+</form>
+
+<p id="result"></p>
 
     <label for="baseAmount">Enter base amount:</label>
     <input type="number" id="baseAmount" value="50">
@@ -33,6 +48,34 @@
 
             // Display the results
             document.getElementById('result').innerHTML = toShow;
+        }
+        function chooseOp() {
+            // Get the selected operation
+            var operation = document.querySelector('input[name="operation"]:checked').value;
+
+            // Get values from the previous input elements (base and tip)
+            var base = parseFloat(document.getElementById('baseAmount').value);
+            var tip = parseFloat(document.getElementById('tipPercent').value);
+
+            var resultText = "";
+
+            // Perform the selected operation
+            switch (operation) {
+                case "sum":
+                    resultText = "Sum of " + base + " and " + tip + " is " + (base + tip);
+                    break;
+                case "difference":
+                    resultText = "Difference between " + base + " and " + tip + " is " + (base - tip);
+                    break;
+                case "product":
+                    resultText = "Product of " + base + " and " + tip + " is " + (base * tip);
+                    break;
+                default:
+                    resultText = "Select an operation";
+            }
+
+            // Display the result
+            document.getElementById('result').innerHTML = resultText;
         }
     </script>
 

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    <title>Cruise ship</title>
+ </head>
+<body>
+
+<h1>Sravya goes on a Cruise</h1>
+<div class="cruise">
+    <form>
+        <div class="form-group">
+            <input type="checkbox" class="form-check-input" id="sharesCabin" value="True" name="mathOperation"  onclick="chooseUp()"/>
+            <label for="cabin">Shares Cabin</label>
+        </div>
+        <div class="form-group">
+            <input type="checkbox" class="form-check-input" id="breakfast" value="True" name="mathOperation"  onclick="chooseUp()"/>
+        <label for="breakfast">Breakfast</label>
+        </div>
+        <div class="form-group">
+            <input type="checkbox" class="form-check-input" id="poolpass" value="False" name="mathOperation"  onclick="chooseUp()"/>
+        <label for="poolpass">Pool Pass</label>
+        </div>
+       <button type="button" class="btn btn-success" onclick="selectCruise()">Select a cruise</button><br> <br>
+    </form>
+    <form id="updatedForm">
+        <div class="form-group">
+            <label for="days">Enter the number of days : </label><br>
+        <input class="form-control border"  type="text" id="days" name="days">
+        </div>
+        <div class="form-group">
+            <label for="price">Enter price :</label><br>
+        <input class="form-control border"  type="text" id="price" name="price">
+        </div><br/>
+        <div class="form-group">
+            <button class="btn btn-success" type="button" onclick="updateCruise()">Update the cruise</button>
+        </div>
+        
+        
+      </form>
+    <br/><br/>
+    <div id="result"></div>
+    </div>
+    <script> 
+    let my_cruise = {} ;
+    function selectCruise() {
+        my_cruise = {
+            cabin : document.getElementById('sharesCabin').checked,
+            breakfast: document.getElementById('breakfast').checked,
+            pool: document.getElementById('poolpass').checked
+        }
+        document.getElementById('result').innerHTML = JSON.stringify(my_cruise);
+    }
+    
+    function updateCruise() {
+          let days = document.getElementById('days').value;
+          let price = document.getElementById('price').value;
+          my_cruise['days'] = days;
+          my_cruise['price'] = price;
+          document.getElementById('result').innerHTML = JSON.stringify(my_cruise);
+        }
+    </script>
+
+</body>
+</html> 
